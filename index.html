@@ -220,8 +220,8 @@
         a = g + mark.a / 1;
         mark.y = Math.round( mark.uy * t + ( a * t * t ) / 2 );
 
-        if ( mark.x > dimensions.width ) mark.x = 0;
-        if ( mark.x < 0 ) mark.x = dimensions.width;
+        if ( mark.x > dimensions.width ) mark.x = dimensions.width;
+        if ( mark.x < 0 ) mark.x = 0;
         if ( mark.y > dimensions.height ) mark.y = dimensions.height - 100;
 
         mark.elem.setAttribute( 'style', 'top: ' + mark.y + 'px; right: ' + mark.x + 'px' );
