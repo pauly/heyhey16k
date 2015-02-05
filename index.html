@@ -1,0 +1,196 @@
+<!doctype html>
+<html>
+  <head>
+    <title>HEY HEY 16K</title>
+    <!-- True Type Font: ZX Spectrum-7 version 1.0
+      EULA The font ZX Spectrum-7 is freeware.
+      This font has created to celebrate 30 years of the great computer ZX-Spectrum. Font based on native ZX-Spectrum symbols. Latin and Cyrillic code pages are supported.
+      Please visit http://www.styleseven.com/ for download our other products as freeware as shareware.
+      We will welcome any useful suggestions and comments; please send them to ms-7@styleseven.com
+      AUTHOR Sizenko Alexander Style-7 http://www.styleseven.com
+      Created: December 24 2012 -->
+    <style>
+      /* @font-face kit by Fonts2u (http://www.fonts2u.com) */
+      @font-face {font-family:"Sinclair ZX Spectrum ES Regular";src:url("sinclair_zx_spectrum_es.eot?") format("eot"),url("sinclair_zx_spectrum_es.woff") format("woff"),url("sinclair_zx_spectrum_es.ttf") format("truetype"),url("sinclair_zx_spectrum_es.svg#Sinclair-ZX-Spectrum-ES") format("svg");font-weight:normal;font-style:normal;}
+    BODY {
+      margin: 0px, 0px, 0px, 0px;
+      background-color:#000000; 
+      font-family: "Sinclair ZX Spectrum ES Regular", "Lucida Console", monospace, Sans-serif;
+      font-size: 18px;
+      COLOR: #FFFFFF;
+    }
+    .keys,
+    p {
+      text-align: center;
+    }
+    .keys a {
+      font-size: 18px;
+      text-align: left;
+      position: relative;
+      display: inline-block;
+      color: #ffffff;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: normal;
+      width: 90px;
+      height: 55px;
+      background-color: #777788;
+      margin: 20px;
+      padding: 10px;
+      padding-bottom: 0px;
+      text-transform: uppercase;
+      border: 2px #888888 solid;
+      border-radius: 5px;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+      box-shadow: -2px 2px 5px #666666;
+    }
+    .keys a:before {
+      color: #ffffff;
+      display: block;
+      font-size: 2em;
+      margin: -10px -5px -5px -5px;
+    }
+    .keys a.about:before {
+      content: 'A';
+    }
+    .keys a.contact:before {
+      content: 'C';
+    }
+    .keys a.dates:before {
+      content: 'D';
+    }
+    .keys a.history:before {
+      content: 'H';
+    }
+    .keys a:after {
+      position: absolute;
+      top: 10px;
+      left: 50px;
+      color: #cc0000;
+      content: 'X';
+    }
+    .keys a.about:after {
+      content: '?';
+    }
+    .keys a.contact:after {
+      content: '>';
+    }
+    .keys a.dates:after {
+      content: '@';
+    }
+    .keys a.history:after {
+      content: '&';
+    }
+    h1, h2 {
+      font-family: "Sinclair ZX Spectrum ES Regular", monospace;
+      text-align: center;
+    }
+    h1 {
+      font-size: 80px;
+      margin: 0;
+    }
+    h1, h1 a {
+      font-weight: normal;
+      color: #ffffff;
+    }
+    h2 {
+      font-size: 18px;
+      margin-left: 130px;
+      margin-right: 130px;
+      padding: 0;
+      text-transform: uppercase;
+    }
+    h2, h2 a {
+      display: inline-block;
+      font-weight: normal;
+      color: #ffff00;
+    }
+    #steve, #mark {
+      display: inline-block;
+      width: 130px;
+      height: 100px;
+      position: absolute;
+      top: 100px;
+      -webkit-transition: all 600ms ease-in-out;
+      transition:         all 600ms ease-in-out;
+    }
+    #steve {
+      background: url(steve.png) top left no-repeat;
+      left: 0px;
+    }
+    #mark {
+      background: url(mj.png) top left no-repeat;
+      right: 0px;
+    }
+    h3 {
+      font-size: 22px;
+      COLOR: #00DDDD;
+    }
+
+    A {
+      text-decoration: none;  
+            font-weight: bold;
+      color: #FFFF00;
+    }
+
+    </style>
+  </head>
+  <body>
+    <h1><a href="index.php">HEY HEY 16K</a></h1>
+    <h2>A two man show by MJ Hibbett and Steve</h2>
+    <div id="steve"></div>
+    <div id="mark"></div>
+    <div class="keys">
+      <a href="index.php" class="about">About</a>
+      <a href="contact.php" class="contact">Contact</a>
+      <a href="dates.php" class="dates">Dates</a>
+      <a href="history.php" class="history" title="THE HISTORY OF HEY HEY 16K">History</a>
+    </div>
+    <h3>About The Show</h3>
+    <p>Hey Hey 16K is the brand new two man rock opera from MJ Hibbett (and Steve), the people who gave the world <a href=http://www.dinosaurplanet.co.uk>Dinosaur Planet</a>, <a href=http://www.moonhorse.net>Moon Horse VS The Mars Men Of Jupiter</a> and <a href=http://www.totalheroteam.co.uk>Total Hero Team</a>.</p>
+    <p>The show features a pile of brand new songs alongside some old favourites like 'I Come From The Fens' and, of course, 'Hey Hey 16K'. It's an hour's worth of singing, dancing and titting around covering subjects such as time travel, the history of home computing, growing up, the nature of historical accuracy and what exactly it means to be 'normal'. </p>
+    <p>Come and see it, it'll be great!</p>
+    <script>
+      var browserHeight = function ( ) {
+        if ( typeof( window.innerWidth ) == 'number' ) {
+          return window.innerHeight;
+        };
+        if ( document.documentElement && document.documentElement.clientHeight ) {
+          return document.documentElement.clientHeight;
+        }
+        if ( document.body && document.body.clientHeight ) {
+          return document.body.clientHeight;
+        }
+        return 0;
+      };
+      document.onkeyup = function ( e ) {
+        mark.setAttribute( 'a', 0 );
+      };
+      document.onkeypress = function ( e ) {
+        if ( ! e.keyCode ) return;
+        console.log( 'pressed', e.keyCode );
+        if ( e.keyCode == 113 ) mark.setAttribute( 'a', -0.1 ); // q
+        if ( e.keyCode == 97 ) mark.setAttribute( 'a', 0 ); // a
+        if ( e.keyCode == 111 ) mark.setAttribute( 'ax', 0.1 ); // o
+        if ( e.keyCode == 112 ) mark.setAttribute( 'a', -0.1 ); // p
+      };
+      var mark = document.getElementById('mark');
+      var height = browserHeight( );
+      var t1 = ( new Date( )).getTime( );
+      var g = 1; // acceleration due to gravity, on screen
+      mark.setAttribute( 't', 0 );
+      mark.setAttribute( 'u', -0.2 );
+      mark.setAttribute( 'a', 0 );
+      var animate = function ( ) {
+        var u = mark.getAttribute( 'u' );
+        var t = ( new Date( )).getTime( ) - t1;
+        // s = ut + ½ at²
+        a = g + mark.getAttribute( 'a' );
+        var y = u * t + ( a * t ) / 2;
+        if ( y > height ) y = height - 100;
+        mark.setAttribute( 'style', 'top: ' + y + 'px' );
+      };
+      setInterval( animate, 50 );
+    </script>
+  </body>
+</html>
