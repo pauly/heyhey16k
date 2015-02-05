@@ -130,6 +130,14 @@
       -webkit-transition: all 600ms ease-in-out;
       transition:         all 600ms ease-in-out;
     }
+    #steve.reverse, #mark.reverse {
+      -moz-transform: scaleX(-1);
+      -o-transform: scaleX(-1);
+      -webkit-transform: scaleX(-1);
+      transform: scaleX(-1);
+      filter: FlipH;
+      -ms-filter: "FlipH";
+    }
     #steve {
       background: url(steve.png) top left no-repeat;
       left: 0px;
@@ -163,7 +171,7 @@
       <a href="history.php" class="history" title="THE HISTORY OF HEY HEY 16K">History</a>
     </div>
     <h3>About The Show</h3>
-    <p>Hey Hey 16K is the brand new two man rock opera from MJ Hibbett (and Steve), the people who gave the world <a href=http://www.dinosaurplanet.co.uk>Dinosaur Planet</a>, <a href=http://www.moonhorse.net>Moon Horse VS The Mars Men Of Jupiter</a> and <a href=http://www.totalheroteam.co.uk>Total Hero Team</a>.</p>
+    <p>Hey Hey 16K is the brand new two man rock opera from MJ Hibbett (and Steve), the people who gave the world <a href="http://www.dinosaurplanet.co.uk">Dinosaur Planet</a>, <a href="http://www.moonhorse.net">Moon Horse VS The Mars Men Of Jupiter</a> and <a href="http://www.totalheroteam.co.uk">Total Hero Team</a>.</p>
     <p>The show features a pile of brand new songs alongside some old favourites like 'I Come From The Fens' and, of course, 'Hey Hey 16K'. It's an hour's worth of singing, dancing and titting around covering subjects such as time travel, the history of home computing, growing up, the nature of historical accuracy and what exactly it means to be 'normal'. </p>
     <p>Come and see it, it'll be great!</p>
     <script>
@@ -182,53 +190,51 @@
       document.onkeyup = function ( e ) {
         mark.a = 0;
       };
-      var xModifier = 0.001;
       var yModifier = 0.0003;
       document.onkeypress = function ( e ) {
         if ( ! e.keyCode ) return;
         if ( e.keyCode == 113 ) mark.a = yModifier * -1; // q
         if ( e.keyCode == 97 ) mark.a = 0; // a
-        if ( e.keyCode == 111 ) mark.ax -= xModifier; // o
-        if ( e.keyCode == 112 ) mark.ax += xModifier; // p
+        if ( e.keyCode == 111 ) {
+          mark.x += 100; // o
+          mark.elem.setAttribute( 'class', '' );
+        }
+        if ( e.keyCode == 112 ) {
+          mark.x -= 100; // p
+          mark.elem.setAttribute( 'class', 'reverse' );
+        }
       };
-      var screen = screenSize( );
+      var dimensions = screenSize( );
       var mark = {
         t: 0,
         uy: 0,
         a: 0,
-        ax: 0,
-        ux: screen.width - 100,
-        x: screen.width - 100,
+        x: 0,
         y: 100,
         elem: document.getElementById('mark')
       };
-      if ( window.console ) console.log( screen );
       var t1 = ( new Date( )).getTime( );
       var g = yModifier; // acceleration due to gravity, on screen
       var animate = function ( ) {
         var t = ( new Date( )).getTime( ) - t1;
         a = g + mark.a / 1;
         mark.y = Math.round( mark.uy * t + ( a * t * t ) / 2 );
-        mark.x = Math.round( mark.ux * t + ( mark.ax * t * t ) / 2 );
 
-        if ( window.console ) console.log( 'would be', mark.x, mark.y );
-        if ( mark.x > screen.width ) mark.x = 0;
-        if ( mark.x < 0 ) mark.x = screen.width;
-        if ( mark.y > screen.height ) mark.y = screen.height - 200;
+        if ( mark.x > dimensions.width ) mark.x = 0;
+        if ( mark.x < 0 ) mark.x = dimensions.width;
+        if ( mark.y > dimensions.height ) mark.y = dimensions.height - 100;
 
-        mark.elem.innerHTML = mark.x + ',' + mark.y;
-        if ( window.console ) console.log( mark.x + ',' + mark.y + ' a=' + a );
-        mark.elem.setAttribute( 'style', 'top: ' + mark.y + 'px; right: ' + mark.left + 'px' );
+        mark.elem.setAttribute( 'style', 'top: ' + mark.y + 'px; right: ' + mark.x + 'px' );
       };
       var _i;
       var go = function ( ) {
         document.getElementById('keys').setAttribute( 'class', 'gameOn' );
-        _i = setInterval( animate, 100 );
+        _i = setInterval( animate, 10 );
       };
       var stop = function ( ) {
         document.getElementById('keys').setAttribute( 'class', 'gameOver' );
+        mark.elem.setAttribute( 'class', '' );
         mark.elem.setAttribute( 'style', 'top: 100px; right: 0px;' );
-        mark.elem.innerHTML = '';
         clearInterval( _i );
       };
       setTimeout( go, 1000 );
